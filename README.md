@@ -1,1 +1,2 @@
-Automation test project for testing web-store functionality
+Zapchasti_ZAZ_atuomation_test_project
+  main .robot file
