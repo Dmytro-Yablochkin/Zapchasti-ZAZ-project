@@ -17,6 +17,8 @@ class Other_Locators:
 
     contact_page = 'Контакты - телефоны, график работы, карта проезда'
 
+    preloader = 'css = .blockloadicon'
+
 
 class OtherFunctionality(ListItems, Items):
     # 3. Add items modal window
@@ -46,3 +48,7 @@ class OtherFunctionality(ListItems, Items):
 
     def check_contact_page_redirecting_is_success(self):
         bi.run_keyword('Wait until page contains', Other_Locators.contact_page)
+
+    def check_preloader(self):
+        bi.run_keyword('Wait until element is visible', Other_Locators.preloader)
+        bi.run_keyword('Wait until element is not visible', Other_Locators.preloader)
