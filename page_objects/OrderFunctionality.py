@@ -8,8 +8,7 @@ sl = BuiltIn().get_library_instance("SeleniumLibrary")
 
 
 class OrderForm_Locators:
-    header_logo = 'css = #header > div.header__line > div > div > div.header__logo.col-xs-10.col-sm-2.col-md-4 > ' \
-                  'a.header__logo-link '
+    header_logo = 'css = .header__logo > a:last-child'
     order_form = 'css = #collapseOne > div'
 
     name_field = 'css = #firstname'
@@ -64,7 +63,7 @@ class OrderFunctionality(Items, UserData):
         bi.run_keyword('Click button', OrderForm_Locators.continue_btn)
 
     def choose_delivery_method(self):
-        bi.sleep(1)
+        bi.run_keyword('check_preloader')
         bi.run_keyword('Click element', OrderForm_Locators.delivery_method_droplist)
         bi.run_keyword('Mouse over', OrderForm_Locators.self_delivery)
         bi.run_keyword('Click element', OrderForm_Locators.self_delivery)
@@ -92,7 +91,7 @@ class OrderFunctionality(Items, UserData):
         bi.run_keyword('Click button', OrderForm_Locators.submit_account_btn)
 
     def choose_nova_poshta_delivery_method(self):
-        bi.sleep(1)
+        bi.run_keyword('check_preloader')
         bi.run_keyword('Click element', OrderForm_Locators.delivery_method_droplist)
         bi.run_keyword('Mouse over', OrderForm_Locators.nova_poshta)
         bi.run_keyword('Click element', OrderForm_Locators.nova_poshta)
@@ -140,13 +139,13 @@ class OrderFunctionality(Items, UserData):
         bi.run_keyword('Input text', OrderForm_Locators.email_field, UserData.random_user_email)
 
     def choose_justin_delivery(self):
-        bi.sleep(1)
+        bi.run_keyword('check_preloader')
         bi.run_keyword('Click element', OrderForm_Locators.delivery_method_droplist)
         bi.run_keyword('Mouse over', OrderForm_Locators.justin)
         bi.run_keyword('Click element', OrderForm_Locators.justin)
 
     def choose_justin_city_address(self):
-        bi.sleep(1)
+        bi.run_keyword('check_preloader')
         bi.run_keyword('Click element', OrderForm_Locators.user_city_droplist)
         bi.run_keyword('Wait until element is visible', OrderForm_Locators.user_city_field)
         bi.run_keyword('Click element', OrderForm_Locators.user_city_field)
@@ -157,6 +156,6 @@ class OrderFunctionality(Items, UserData):
         bi.run_keyword('Click element', OrderForm_Locators.user_city_droplist_item)
 
     def check_delivery_address_is_correct(self):
-        bi.sleep(1)
+        bi.run_keyword('check_preloader')
         bi.run_keyword('Textfield value should be', OrderForm_Locators.delivery_warehouse_droplist,
                        'Отделение №5 (Гетьмана Мазепы ул., 11 )')
